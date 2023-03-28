@@ -17,7 +17,7 @@ public class ExampleEndpoint : IEndpointDefinition
 ```cs
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddEndpoints();
+builder.Services.AddEndpoints(Assembly.GetExecutingAssembly());
 
 var app = builder.Build();
 

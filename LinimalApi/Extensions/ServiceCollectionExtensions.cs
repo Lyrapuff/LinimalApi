@@ -15,10 +15,9 @@ public static class ServiceCollectionExtensions
         }
     }
 
-    public static void AddEndpoints(this IServiceCollection services)
+    public static void AddEndpoints(this IServiceCollection services, Assembly assembly)
     {
-        var endpoints = Assembly
-            .GetExecutingAssembly()
+        var endpoints = assembly
             .GetTypes()
             .Where(type => type.GetInterface(nameof(IEndpointDefinition)) is { });
 
